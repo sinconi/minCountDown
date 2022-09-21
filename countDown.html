@@ -30,8 +30,30 @@
 <body>
     <div class="count">
         <p id="countDown">05 : 00</p>  
-
+        
     </div>
         
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function(){
+            const startMin = 5;
+            let time = startMin * 60 ;
+
+            const countDownEl = setInterval(() => {
+                time-- ;
+                const minutes = '0'+ Math.floor(time/60); 
+                let seconds = time % 60 ; 
+                seconds = seconds < 10 ? '0'+ seconds : seconds ;
+                $('#countDown').html(`${minutes} : ${seconds}`);
+                // console.log(countDownEl);
+                if(time === 0){
+                    location.href = "./A-4-2.html"
+                    clearInterval()
+                }
+            },1000)
+
+        }
+    </script>
 </body>
 </html>
